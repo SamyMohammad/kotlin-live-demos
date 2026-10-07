@@ -210,3 +210,25 @@ println("Root of every class: ${Any::class.simpleName} (Dart: Object)")
 3. الـ interface فيها default methods و properties من غير state، ولو اتعارضت لازم تختار بـ `super<X>`.
 
 </div>
+‏النقطة	‏Interface	‏Abstract class
+‏تعمل منه object مباشرة	‏❌	‏❌
+‏constructor	‏❌	‏✅
+‏init block	‏❌	‏✅
+‏state (backing field)	‏❌	‏✅
+‏property بقيمة val x = 5	‏❌	‏✅
+‏property محسوبة get() =	‏✅	‏✅
+‏abstract members	‏✅ من غير كلمة abstract	‏✅ لازم كلمة abstract
+‏default implementation	‏✅	‏✅
+‏الـ members المتنفذة قابلة للـ override	‏✅ ضمنيًا	‏❌ إلا لو open
+protected	‏❌	‏✅
+private	‏✅ للـ helpers المتنفذة بس	‏✅
+internal	‏❌ على الـ members	‏✅
+‏تورث من كام واحد	‏أي عدد	‏واحد بس
+‏يورث من	‏interfaces بس	‏class واحد + أي عدد interfaces
+‏شكله في الوراثة	: Clickable	: Shape() بالـ parentheses
+‏delegation بـ by	‏✅	‏❌
+‏lambda مباشرة (SAM)	‏✅ بـ fun interface	‏❌
+‏object expression	‏✅	‏✅ بتبعت constructor args
+sealed	‏✅ sealed interface	‏✅ sealed class
+companion object	‏✅	‏✅
+‏تعارض default methods	‏super<A>.foo()	‏مش بيحصل (وارث واحد)
